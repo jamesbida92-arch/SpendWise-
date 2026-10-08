@@ -1,0 +1,130 @@
+﻿:root {
+    --brand-color: #2563eb;
+    --accent-color: #10b981;
+    --background-color: #f3f4f6;
+    --surface-color: #ffffff;
+    --primary-text: #111827;
+    --secondary-text: #6b7280;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background-color);
+    color: var(--primary-text);
+    min-height: 100vh;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background: var(--surface-color);
+    padding: 24px;
+    border-right: 1px solid #e5e7eb;
+}
+
+.logo {
+    color: var(--brand-color);
+    margin-bottom: 30px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-item {
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--secondary-text);
+}
+
+.nav-item.active {
+    background: var(--brand-color);
+    color: white;
+}
+
+.main-content {
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.header p {
+    color: var(--secondary-text);
+    margin-top: 5px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--surface-color);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card h2 {
+    font-size: 18px;
+}
+
+.card p {
+    color: var(--secondary-text);
+}
+
+.amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--brand-color);
+}
+
+.card.savings .amount {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
