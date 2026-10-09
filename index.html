@@ -1,30 +1,26 @@
-﻿<!DOCTYPE html>
+﻿<
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpendWise</title>
+    <title>SpendWise | Budget Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-
 <body>
-
     <div class="dashboard">
-
         <aside class="sidebar">
             <h2 class="logo">SpendWise</h2>
-
             <nav class="nav">
-                <div class="nav-item active">Dashboard</div>
-                <div class="nav-item">Budget</div>
-                <div class="nav-item">Expenses</div>
-                <div class="nav-item">Savings</div>
-                <div class="nav-item">Reports</div>
+                <a class="nav-item active" href="#dashboard">Dashboard</a>
+                <a class="nav-item" href="#budget-section">Budget</a>
+                <a class="nav-item" href="#expenses-section">Expenses</a>
+                <a class="nav-item" href="#category-section">Reports</a>
             </nav>
         </aside>
 
-        <main class="main-content">
-
+        <main class="main-content" id="dashboard">
             <header class="header">
                 <div>
                     <h1>Financial Dashboard</h1>
@@ -32,50 +28,107 @@
                 </div>
             </header>
 
-            <section class="cards">
-
-                <article class="card">
-                    <h2>Food</h2>
-                    <p>Monthly spending</p>
-                    <div class="amount">KSh 5,000</div>
-                </article>
-
-                <article class="card">
-                    <h2>Transport</h2>
-                    <p>Monthly spending</p>
-                    <div class="amount">KSh 3,000</div>
-                </article>
-
-                <article class="card">
-                    <h2>Rent</h2>
-                    <p>Monthly spending</p>
-                    <div class="amount">KSh 20,000</div>
-                </article>
-
-                <article class="card">
-                    <h2>Entertainment</h2>
-                    <p>Monthly spending</p>
-                    <div class="amount">KSh 2,000</div>
-                </article>
-
-                <article class="card savings">
-                    <h2>Savings</h2>
-                    <p>Monthly savings</p>
-                    <div class="amount">KSh 5,000</div>
-                </article>
-
-                <article class="card">
-                    <h2>Utilities</h2>
-                    <p>Monthly spending</p>
-                    <div class="amount">KSh 4,000</div>
-                </article>
-
+            <section class="budget-panel" id="budget-section">
+                <h2>Set Your Monthly Budget</h2>
+                <form id="budget-form" class="budget-form">
+                    <label for="budget-input">Monthly budget (KSh)</label>
+                    <input id="budget-input" type="number"
+                        min="0.01" step="0.01" placeholder="e.g. 50000" required>
+                    <button type="submit">Set Budget</button>
+                </form>
             </section>
 
+            <section class="cards summary-cards" aria-label="Budget summary">
+                <article class="card">
+                    <h2>Total Budget</h2>
+                    <p>Your monthly limit</p>
+                    <div class="amount" id="total-budget">KSh 0.00</div>
+                </article>
+                <article class="card">
+                    <h2>Total Expenses</h2>
+                    <p>All recorded spending</p>
+                    <div class="amount" id="total-expenses">KSh 0.00</div>
+                </article>
+                <article class="card">
+                    <h2>Remaining Balance</h2>
+                    <p>Money left in your budget</p>
+                    <div class="amount" id="remaining-balance">KSh 0.00</div>
+                </article>
+            </section>
+
+            <p id="budget-status" class="status" role="status" aria-live="polite">
+                Set your monthly budget to get started.
+            </p>
+
+            <section class="budget-panel" id="expenses-section">
+                <h2>Add a New Expense</h2>
+                <form id="expense-form" class="expense-form">
+                    <div class="form-field">
+                        <label for="expense-name">Expense name</label>
+                        <input id="expense-name" type="text"
+                            placeholder="e.g. Shopping" required maxlength="80">
+                    </div>
+                    <div class="form-field">
+                        <label for="expense-amount">Amount (KSh)</label>
+                        <input id="expense-amount" type="number"
+                            min="0.01" step="0.01" placeholder="e.g. 1500" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="expense-category">Category</label>
+                        <select id="expense-category" required>
+                            <option value="">Choose a category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="expense-date">Date</label>
+                        <input id="expense-date" type="date" required>
+                    </div>
+                    <button type="submit">Add Expense</button>
+                </form>
+                <p id="form-message" class="form-message" role="status"
+                    aria-live="polite"></p>
+            </section>
+
+            <section class="budget-panel">
+                <h2>Expense Records</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-list">
+                            <tr>
+                                <td colspan="5">No expenses recorded yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="budget-panel" id="category-section">
+                <h2>Spending by Category</h2>
+                <div id="category-summary" class="category-summary">
+                    No category spending to display yet.
+                </div>
+            </section>
+
+            <footer>
+                <p>SpendWise — Make every shilling count.</p>
+            </footer>
         </main>
-
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
