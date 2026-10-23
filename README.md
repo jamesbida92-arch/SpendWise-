@@ -100,4 +100,27 @@ Expense records are stored in a JavaScript array in memory. They are not saved p
 
 ## Author
 
-SpendWise Budget Tracker Project
+SpendWise Budget Tracker Project# Budget Tracker – Visual Design
+
+## About the Project
+I improved the design of my existing Budget Tracker using CSS.
+
+## Color Palette
+I used green, white, and light green to make the website look clean and professional.
+
+## Fonts
+I used Poppins for headings and Roboto for normal text.
+
+## Form and Table
+I added spacing, borders, colors, and rounded corners to make the form and expense table easier to read.
+
+## CSS Box Model
+I used margin to separate sections, padding to add space inside sections, borders to define sections, and rounded corners to improve the appearance.
+
+## Project Files
+- `index.html` – Contains the website structure.
+- `style.css` – Controls the website's appearance.
+- `script.js` – Handles the existing website functionality.
+
+## Conclusion
+This project helped me learn how to use CSS to make my Budget Tracker more attractive and easier to use.
