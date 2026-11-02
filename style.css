@@ -96,3 +96,9 @@ tbody tr:nth-child(even) {
         padding: 8px;
     }
 }
+.deployment-notice {
+    color: #16a34a;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+}
