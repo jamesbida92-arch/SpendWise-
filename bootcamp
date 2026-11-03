@@ -1,0 +1,45 @@
+# PostgreSQL Backup, Recovery, and Streaming Replication Lab
+
+## 1. Introduction
+
+The objective of this practical lab was to learn how to back up, restore, recover, and replicate a PostgreSQL database. The lab used PostgreSQL 16.15 on Windows PowerShell.
+
+## 2. Logical Backup and Restore
+
+I created a logical backup of the `bootcamp` database using PostgreSQL backup tools. I restored the backup into a separate test database and verified that the `students` table contained five records.
+
+## 3. Physical Backup and Verification
+
+I created a physical base backup using `pg_basebackup`. The backup included the database files, a backup manifest, and streamed WAL files. I used `pg_verifybackup` to verify the backup successfully.
+
+## 4. WAL Archiving
+
+I enabled PostgreSQL WAL archiving and configured the archive directory as `C:\Users\ADMIN\backups\wal`. The archiver statistics showed archived WAL files and zero reported archive failures at the time of verification.
+
+## 5. Point-in-Time Recovery (PITR)
+
+I simulated accidental deletion of all five records from the original `students` table. I recovered the database on a separate PostgreSQL instance using the archived WAL files and a recovery target set to a time before the deletion transaction committed.
+
+I verified the recovered database by querying the table. The result contained five student records: Alice Wanjiku, Brian Otieno, Alice Wanjiku, Brian Otieno, and Mary Achieng.
+
+## 6. Streaming Replication
+
+I created a PostgreSQL role named `replicator` with replication privileges and configured access in `pg_hba.conf`. I used `pg_basebackup` with the `-R` option to create the standby data directory.
+
+The primary server ran on port 5432, the PITR recovery instance on port 5433, and the streaming standby on port 5434.
+
+I confirmed that `pg_is_in_recovery()` returned `t` on the standby. The primary's `pg_stat_replication` view reported the connection state as `streaming`, while the standby's `pg_stat_wal_receiver` view also reported `streaming`.
+
+## 7. Replication Test
+
+I created a test table named `replication_check` on the primary database and inserted the record `Streaming replication works`. I queried the standby and confirmed that the inserted record was present. I then dropped the test table from the primary.
+
+This demonstrated that changes made on the primary were replicated to the standby.
+
+## 8. Conclusion
+
+The lab demonstrated logical and physical backups, WAL archiving, point-in-time recovery, backup verification, and asynchronous streaming replication. The recovered database retained the five records that existed before the simulated deletion, and the standby successfully received changes from the primary server.
+
+## 9. Evidence
+
+Screenshots should show the successful backup and restore, physical backup verification, WAL archiving settings, PITR recovery logs and five recovered records, standby recovery status, primary replication status, WAL receiver status, and the replication test result.
