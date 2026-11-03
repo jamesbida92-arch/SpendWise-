@@ -2,9 +2,9 @@
 "use strict";
 
 // 1. Application data
-let budget = 0;
+let budget = Number(localStorage.getItem("spendwise-budget")) || 0;
 
-const expenses = [];
+let expenses = JSON.parse(localStorage.getItem("spendwise-expenses")) || [];
 
 // 2. Select HTML elements using the DOM
 const budgetForm = document.getElementById("budget-form");
@@ -40,6 +40,11 @@ function calculateTotalExpenses() {
     }
 
     return total;
+}
+
+// Save expenses in browser storage
+function saveExpenses() {
+    localStorage.setItem("spendwise-expenses", JSON.stringify(expenses));
 }
 
 // 4. Calculate the remaining budget
@@ -198,7 +203,10 @@ budgetForm.addEventListener("submit", function (event) {
     }
 
     budget = enteredBudget;
-    updateDashboard();
+
+localStorage.setItem("spendwise-budget", budget);
+
+updateDashboard();
 
     formMessageElement.textContent = "";
     budgetForm.reset();
@@ -234,9 +242,10 @@ expenseForm.addEventListener("submit", function (event) {
         date: date
     };
 
-    expenses.push(expense);
+  expenses.push(expense);
 
-    updateDashboard();
+saveExpenses();
+updateDashboard();
 
     formMessageElement.textContent = "Expense added successfully.";
     expenseForm.reset();
@@ -255,9 +264,10 @@ expenseListElement.addEventListener("click", function (event) {
         return expense.id === button.dataset.id;
     });
 
-    if (expenseIndex !== -1) {
-        expenses.splice(expenseIndex, 1);
-        updateDashboard();
+    expenses.splice(expenseIndex, 1);
+
+saveExpenses();
+updateDashboard();
         formMessageElement.textContent = "Expense deleted successfully.";
     }
 });
