@@ -1,130 +1,132 @@
-﻿## Live Netlify Website## Live Netlify Website
+﻿# SpendWise – Personal Budget Tracker
 
+## 1. Project Description
+
+SpendWise is a personal budgeting application developed using HTML, CSS, and JavaScript. It helps users manage their monthly budgets, record expenses, monitor their remaining balance, and review spending by category.
+
+The application provides a simple and user-friendly dashboard for tracking personal finances.
+
+## 2. Technologies Used
+
+- HTML5 – Website structure.
+- CSS3 – Styling, layout, and responsive design.
+- JavaScript – Application functionality and calculations.
+- Local Storage – Saving budget and expense records in the browser.
+- Git and GitHub – Version control and project hosting.
+- Netlify – Website deployment and publishing.
+
+## 3. Project Features
+
+- Set a monthly budget.
+- Add expenses with names, amounts, categories, and dates.
+- View recorded expenses in a table.
+- Delete individual expenses.
+- Automatically calculate total expenses.
+- Calculate the remaining budget balance.
+- Display budget status and spending warnings.
+- View spending summaries by category.
+- Save budget and expense information using browser local storage.
+- Responsive dashboard for desktop and mobile screens.
+
+## 4. GitHub Repository Information
+
+**Repository Name:** SpendWise-
+
+**GitHub Repository:**  
+https://github.com/jamesbida92-arch/SpendWise-
+
+**Branch:** main
+
+## 5. Live Netlify Website
+
+SpendWise is published and accessible online through Netlify.
+
+**Live Website URL:**  
 https://spendwise-james-bida.netlify.app/
 
-https://spendwise-james-bida.netlify.app/
-# SpendWise - Interactive Budget Tracker
+## 6. Deployment Process Summary
 
-## Project Overview
+The project was deployed using GitHub and Netlify.
 
-SpendWise is a personal budgeting application built with HTML, CSS, and JavaScript. It helps users set a monthly budget, record expenses, monitor their remaining balance, and review spending by category.
+1. Organized the project files, including index.html, style.css, script.js, and README.md.
+2. Created and maintained a public GitHub repository.
+3. Uploaded the SpendWise project files to GitHub.
+4. Connected the GitHub repository to Netlify.
+5. Configured Netlify to deploy the website from the main branch.
+6. Published the website using Netlify.
+7. Changed the default Netlify site name to spendwise-james-bida.
+8. Tested the live website to confirm that the application worked correctly.
+9. Updated the application, pushed changes to GitHub, and verified automatic deployment.
 
-## Improvements Made This Week
+## 7. Continuous Deployment Test
 
-- Added a form for setting a monthly budget.
-- Added an expense form with name, amount, category, and date.
-- Added an expense table that displays recorded expenses.
-- Added the ability to delete individual expenses.
-- Added automatic calculations for total expenses and remaining balance.
-- Added budget status messages and spending warnings.
-- Added a summary of expenses by category.
-- Improved the dashboard layout for mobile and desktop screens.
+I tested automatic deployment by making a visible change to the SpendWise application and pushing the updated files to GitHub.
 
-## JavaScript Concepts Implemented
+Netlify automatically detected the changes in the main branch and started a new deployment.
 
-### 1. Conditional Statements
+This demonstrated that GitHub and Netlify were successfully connected and that future updates could be published automatically.
 
-The application uses `if`, `else if`, and `else` statements to make decisions. It checks whether a budget has been set, whether expenses exceed the budget, whether the budget has been fully used, and whether spending has reached 80% of the budget.
+## 8. Challenges Encountered During Deployment
 
-### 2. Arrays
+### Challenge 1: Connecting GitHub to Netlify
 
-The `expenses` array stores multiple expense objects. Each object contains an ID, name, amount, category, and date.
+Connecting the GitHub repository to Netlify and selecting the correct deployment settings required attention.
 
-The `push()` method adds a new expense, while `splice()` removes an expense after the user selects Delete.
+**Solution:** Connected the correct public repository and selected the main branch.
 
-### 3. Loops
+### Challenge 2: Configuring the Website Name
 
-The application uses `for` loops to calculate total expenses, display expense records, and group spending by category. These loops process multiple records without creating separate variables for each expense.
+The default Netlify site name was not descriptive.
 
-### 4. DOM Manipulation
+**Solution:** Changed the site name to spendwise-james-bida.
 
-The application uses methods such as `getElementById()`, `createElement()`, `appendChild()`, `append()`, and `textContent` to update webpage content.
+### Challenge 3: Verifying Automatic Deployment
 
-When an expense is added or deleted, the dashboard recalculates the totals and refreshes the expense table and category summary.
+It was important to confirm that changes pushed to GitHub would automatically update the live website.
 
-### 5. Event Listeners
+**Solution:** Made a test update, pushed it to GitHub, and checked the Netlify deployment.
 
-The application uses `submit` event listeners for the budget and expense forms. The `preventDefault()` method stops form submission from reloading the page.
+### Challenge 4: Testing the Live Application
 
-A `click` event listener on the expense table handles Delete button actions.
+The website needed to work correctly after deployment, including its styles and JavaScript functionality.
 
-### 6. Functions and Calculations
+**Solution:** Opened the published website and tested the dashboard, budget form, expense records, calculations, and other features.
 
-Reusable functions calculate total expenses, calculate the remaining balance, format currency, evaluate budget status, display expense records, and update the dashboard.
+## 9. Lessons Learned
 
-The remaining balance is calculated by subtracting total expenses from the monthly budget.
+Through this assignment, I learned:
 
-## How to Run the Project
+- How to publish a website using GitHub and Netlify.
+- How to connect a GitHub repository to Netlify.
+- How to configure a custom website name.
+- How to deploy a static website.
+- How continuous deployment works.
+- How to test a live website after deployment.
+- How to maintain and update a project using Git and GitHub.
+- The importance of documenting deployment processes.
 
-1. Download or clone this repository.
+## 10. How to Run the Project Locally
+
+1. Clone or download the GitHub repository.
 2. Open the project folder.
-3. Open `index.html` in a web browser.
-4. Enter a monthly budget and click Set Budget.
-5. Add expenses using the expense form.
-6. Review the dashboard totals, budget status, expense records, and category summary.
-7. Use Delete to remove an expense and verify that the totals update.
+3. Open index.html in a web browser.
+4. Set a monthly budget.
+5. Add expenses and review the dashboard.
+6. Delete expenses and check the updated calculations.
 
 No additional packages are required.
 
-## Challenges and Solutions
+## 11. Project Files
 
-### Challenge 1: Managing Multiple Expenses
+- index.html – Contains the website structure.
+- style.css – Controls the website appearance.
+- script.js – Handles application functionality.
+- README.md – Contains project documentation.
 
-Using separate variables for each expense would make the application difficult to maintain.
+## 12. Conclusion
 
-**Solution:** An array of expense objects stores multiple records and allows the application to process them with loops.
+The SpendWise project helped me develop practical skills in web development, version control, website hosting, and deployment.
 
-### Challenge 2: Keeping Dashboard Totals Accurate
+By using GitHub and Netlify, I successfully published my budgeting application online and learned how automatic deployment makes website updates easier.
 
-Adding or removing expenses changes the total spending and remaining balance.
-
-**Solution:** The `updateDashboard()` function recalculates the values and refreshes the relevant webpage sections after each change.
-
-### Challenge 3: Providing Budget Feedback
-
-Users need to know when their spending is getting close to or has exceeded their budget.
-
-**Solution:** Conditional statements display different messages depending on the budget and spending totals.
-
-### Challenge 4: Handling User Input
-
-Empty fields and invalid amounts can cause incorrect results.
-
-**Solution:** The forms use required fields, input constraints, and JavaScript validation before accepting data.
-
-## Current Limitations
-
-Expense records are stored in a JavaScript array in memory. They are not saved permanently, so refreshing the page clears the records and resets the budget.
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-
-## Author
-
-SpendWise Budget Tracker Project# Budget Tracker – Visual Design
-
-## About the Project
-I improved the design of my existing Budget Tracker using CSS.
-
-## Color Palette
-I used green, white, and light green to make the website look clean and professional.
-
-## Fonts
-I used Poppins for headings and Roboto for normal text.
-
-## Form and Table
-I added spacing, borders, colors, and rounded corners to make the form and expense table easier to read.
-
-## CSS Box Model
-I used margin to separate sections, padding to add space inside sections, borders to define sections, and rounded corners to improve the appearance.
-
-## Project Files
-- `index.html` – Contains the website structure.
-- `style.css` – Controls the website's appearance.
-- `script.js` – Handles the existing website functionality.
-
-## Conclusion
-This project helped me learn how to use CSS to make my Budget Tracker more attractive and easier to use.
+**Project Status:** Successfully deployed and published.
