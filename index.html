@@ -1,139 +1,161 @@
-﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <h1>SpendWise | Smart Budget Dashboard</h1>
+
+    <title>SpendWise | Dashboard</title>
+
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
+
 <body>
+
     <div class="dashboard">
+
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <h2 class="logo">SpendWise</h2>
-            <nav class="nav">
-                <a class="nav-item active" href="#dashboard">Dashboard</a>
-                <a class="nav-item" href="#budget-section">Budget</a>
-                <a class="nav-item" href="#expenses-section">Expenses</a>
-                <a class="nav-item" href="#category-section">Reports</a>
+
+            <div class="logo">
+                <h2>SpendWise</h2>
+                <p>Personal Finance</p>
+            </div>
+
+            <nav class="navigation">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">My Budget</a>
+                <a href="#">Expenses</a>
+                <a href="#">Reports</a>
+                <a href="#">Savings</a>
+                <a href="#">Settings</a>
             </nav>
+
+            <div class="sidebar-footer">
+                <p>Manage your money wisely.</p>
+            </div>
+
         </aside>
 
-        <main class="main-content" id="dashboard">
-    <header class="header">
-    <div>
-        <h1>Financial Dashboard</h1>
 
-        <p class="deployment-notice">
-            SpendWise is now live on the internet!
-        </p>
+        <!-- Main Content -->
+        <main class="main-content">
 
-        <p>Manage your budget and track your spending.</p>
-    </div>
-</header>
+            <!-- Header -->
+            <header class="header">
 
-            <section class="budget-panel" id="budget-section">
-                <h2>Set Your Monthly Budget</h2>
-                <form id="budget-form" class="budget-form">
-                    <label for="budget-input">Monthly budget (KSh)</label>
-                    <input id="budget-input" type="number"
-                        min="0.01" step="0.01" placeholder="e.g. 50000" required>
-                    <button type="submit">Set Budget</button>
-                </form>
-            </section>
-
-            <section class="cards summary-cards" aria-label="Budget summary">
-                <article class="card">
-                    <h2>Total Budget</h2>
-                    <p>Your monthly limit</p>
-                    <div class="amount" id="total-budget">KSh 0.00</div>
-                </article>
-                <article class="card">
-                    <h2>Total Expenses</h2>
-                    <p>All recorded spending</p>
-                    <div class="amount" id="total-expenses">KSh 0.00</div>
-                </article>
-                <article class="card">
-                    <h2>Remaining Balance</h2>
-                    <p>Money left in your budget</p>
-                    <div class="amount" id="remaining-balance">KSh 0.00</div>
-                </article>
-            </section>
-
-            <p id="budget-status" class="status" role="status" aria-live="polite">
-                Set your monthly budget to get started.
-            </p>
-
-            <section class="budget-panel" id="expenses-section">
-                <h2>Add a New Expense</h2>
-                <form id="expense-form" class="expense-form">
-                    <div class="form-field">
-                        <label for="expense-name">Expense name</label>
-                        <input id="expense-name" type="text"
-                            placeholder="e.g. Shopping" required maxlength="80">
-                    </div>
-                    <div class="form-field">
-                        <label for="expense-amount">Amount (KSh)</label>
-                        <input id="expense-amount" type="number"
-                            min="0.01" step="0.01" placeholder="e.g. 1500" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="expense-category">Category</label>
-                        <select id="expense-category" required>
-                            <option value="">Choose a category</option>
-                            <option value="Food">Food</option>
-                            <option value="Transport">Transport</option>
-                            <option value="Rent">Rent</option>
-                            <option value="Entertainment">Entertainment</option>
-                            <option value="Savings">Savings</option>
-                            <option value="Utilities">Utilities</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label for="expense-date">Date</label>
-                        <input id="expense-date" type="date" required>
-                    </div>
-                    <button type="submit">Add Expense</button>
-                </form>
-                <p id="form-message" class="form-message" role="status"
-                    aria-live="polite"></p>
-            </section>
-
-            <section class="budget-panel">
-                <h2>Expense Records</h2>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Amount</th>
-                                <th>Category</th>
-                                <th>Date</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="expense-list">
-                            <tr>
-                                <td colspan="5">No expenses recorded yet.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="welcome">
+                    <h1>Financial Dashboard</h1>
+                    <p>Welcome back! Here is your financial overview.</p>
                 </div>
-            </section>
 
-            <section class="budget-panel" id="category-section">
-                <h2>Spending by Category</h2>
-                <div id="category-summary" class="category-summary">
-                    No category spending to display yet.
+                <div class="profile">
+                    <span>November 2026</span>
+                    <div class="avatar">JB</div>
                 </div>
+
+            </header>
+
+
+            <!-- Summary -->
+            <section class="summary">
+
+                <div class="summary-card">
+                    <h3>Total Budget</h3>
+                    <p>KSh 50,000</p>
+                    <span>Monthly budget</span>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Total Expenses</h3>
+                    <p>KSh 31,500</p>
+                    <span>Money spent</span>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Remaining Balance</h3>
+                    <p>KSh 18,500</p>
+                    <span>Available balance</span>
+                </div>
+
             </section>
 
-            <footer>
-                <p>SpendWise — Make every shilling count.</p>
+
+            <!-- Category Cards -->
+            <section class="categories">
+
+                <div class="section-heading">
+                    <h2>Spending by Category</h2>
+                    <p>Your monthly financial breakdown</p>
+                </div>
+
+                <div class="category-grid">
+
+                    <article class="category-card" tabindex="0">
+                        <div class="card-top">
+                            <h3>Food</h3>
+                            <span>🍔</span>
+                        </div>
+                        <p>KSh 5,000</p>
+                        <small>Monthly spending</small>
+                    </article>
+
+                    <article class="category-card" tabindex="0">
+                        <div class="card-top">
+                            <h3>Transport</h3>
+                            <span>🚗</span>
+                        </div>
+                        <p>KSh 3,000</p>
+                        <small>Monthly spending</small>
+                    </article>
+
+                    <article class="category-card" tabindex="0">
+                        <div class="card-top">
+                            <h3>Rent</h3>
+                            <span>🏠</span>
+                        </div>
+                        <p>KSh 15,000</p>
+                        <small>Monthly spending</small>
+                    </article>
+
+                    <article class="category-card" tabindex="0">
+                        <div class="card-top">
+                            <h3>Entertainment</h3>
+                            <span>🎮</span>
+                        </div>
+                        <p>KSh 2,000</p>
+                        <small>Monthly spending</small>
+                    </article>
+
+                    <article class="category-card" tabindex="0">
+                        <div class="card-top">
+                            <h3>Savings</h3>
+                            <span>💰</span>
+                        </div>
+                        <p>KSh 4,000</p>
+                        <small>Monthly savings</small>
+                    </article>
+
+                    <article class="category-card" tabindex="0">
+                        <div class="card-top">
+                            <h3>Utilities</h3>
+                            <span>💡</span>
+                        </div>
+                        <p>KSh 2,500</p>
+                        <small>Monthly spending</small>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>© 2026 SpendWise. Manage your finances wisely.</p>
             </footer>
+
         </main>
+
     </div>
+
 </body>
 </html>
